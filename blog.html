@@ -7,15 +7,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Helvetica+Neue:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#000;--bg2:#000;--bg3:#000;--white:#f8f8f8;--silver:#c8c8c8;--silver-dim:#707070;--silver-subtle:#383838;--ease-out:cubic-bezier(.16,1,.3,1)}
+:root{--bg:#080808;--bg2:#0f0f0f;--bg3:#161616;--white:#f8f8f8;--silver:#c8c8c8;--silver-dim:#707070;--silver-subtle:#383838;--ease-out:cubic-bezier(.16,1,.3,1)}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
 body{background:var(--bg);color:var(--white);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;overflow-x:hidden;font-weight:300;line-height:1.6}
 a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 
 body::before{content:'';position:fixed;inset:0;z-index:9000;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");opacity:.025;background-size:200px 200px}
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:80px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;transition:background .5s,border-color .5s,transform .7s cubic-bezier(.33,0,.15,1);background:transparent;border-bottom:1px solid transparent}
-.nav.nav-hidden{transform:translateY(-100%)}
-.nav.scrolled{background:rgba(0,0,0,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:80px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;transition:background .5s,border-color .5s;background:transparent;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(8,8,8,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom-color:rgba(255,255,255,.06)}
 .nav-left,.nav-right{display:flex;align-items:center;gap:32px;flex:1}
 .nav-right{justify-content:flex-end}
 .nav-link{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--silver-dim);transition:color .3s;text-decoration:none}
@@ -289,18 +288,6 @@ body::before{content:'';position:fixed;inset:0;z-index:9000;pointer-events:none;
 @media(prefers-reduced-motion:reduce){
   .blog-spark{display:none}
 }
-
-/* Barra responsive en móvil (evita que se vea apretada) */
-@media(max-width:768px){
-  .nav{padding:0 28px}
-  .nav-left,.nav-right{gap:16px}
-  .nav-link{font-size:10px;letter-spacing:1.5px}
-}
-@media(max-width:600px){
-  .nav{padding:0 18px}
-  .nav-left,.nav-right{gap:11px}
-  .nav-link{font-size:9px;letter-spacing:1px}
-}
 </style>
 </head>
 <body>
@@ -331,7 +318,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9000;pointer-events:none;
       <a href="blog-nuestro-para-ustedes.html" class="blog-row">
         <div class="blog-row-meta">
           <span class="blog-row-cat">Manifiesto</span>
-          <span class="blog-row-date">Febrero 2026 · 4 min de lectura</span>
+          <span class="blog-row-date">Mayo 2026 · 4 min de lectura</span>
         </div>
         <h2 class="blog-row-title">Hecho para permanecer</h2>
         <p class="blog-row-desc">Genessy nace de una idea simple, pero profunda: las joyas no están hechas para un momento, sino para perdurar.</p>
@@ -340,7 +327,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9000;pointer-events:none;
       <a href="blog-atemporales.html" class="blog-row">
         <div class="blog-row-meta">
           <span class="blog-row-cat">Filosofía</span>
-          <span class="blog-row-date">Noviembre 2025 · 6 min de lectura</span>
+          <span class="blog-row-date">Abril 2026 · 6 min de lectura</span>
         </div>
         <h2 class="blog-row-title">Atemporales</h2>
         <p class="blog-row-desc">Vivimos en una época acelerada. Las tendencias cambian antes de asentarse. ¿Está la joyería destinada a lo mismo?</p>
@@ -349,7 +336,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9000;pointer-events:none;
       <a href="blog-jewellery-guy.html" class="blog-row">
         <div class="blog-row-meta">
           <span class="blog-row-cat">Guía</span>
-          <span class="blog-row-date">Marzo 2022 · 5 min de lectura</span>
+          <span class="blog-row-date">Marzo 2026 · 5 min de lectura</span>
         </div>
         <h2 class="blog-row-title">El lenguaje de las joyas</h2>
         <p class="blog-row-desc">No se trata solo de tener una cadena. Es un concepto, una actitud y una habilidad para expresar quién eres.</p>
@@ -358,7 +345,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9000;pointer-events:none;
       <a href="blog-metodo-de-compra.html" class="blog-row">
         <div class="blog-row-meta">
           <span class="blog-row-cat">Guía de Compra</span>
-          <span class="blog-row-date">Julio 2024 · 4 min de lectura</span>
+          <span class="blog-row-date">Febrero 2026 · 4 min de lectura</span>
         </div>
         <h2 class="blog-row-title">Cómo adquirir tu pieza</h2>
         <p class="blog-row-desc">Dos formas de encontrar tu pieza: nuestra tienda en línea o directamente por Instagram.</p>
@@ -367,7 +354,7 @@ body::before{content:'';position:fixed;inset:0;z-index:9000;pointer-events:none;
       <a href="blog-crimen-plata-y-legado.html" class="blog-row">
         <div class="blog-row-meta">
           <span class="blog-row-cat">Colaboración</span>
-          <span class="blog-row-date">Septiembre 2025 · 3 min de lectura</span>
+          <span class="blog-row-date">Enero 2026 · 3 min de lectura</span>
         </div>
         <h2 class="blog-row-title">Crimen, plata y legado</h2>
         <p class="blog-row-desc">Cuando dos mundos tan distintos como el lujo y la calle se cruzan, no es casualidad. Es cultura.</p>
@@ -421,15 +408,7 @@ els.forEach(function(el){obs.observe(el)});</script>
 (function(){
   var nav=document.querySelector('.nav');
   if(nav){
-    var lastY=window.scrollY;
-    var onScroll=function(){
-      var y=window.scrollY;
-      nav.classList.toggle('scrolled',y>60);
-      var delta=y-lastY;
-      if(delta>6 && y>240){ nav.classList.add('nav-hidden'); }
-      else if(delta<-6){ nav.classList.remove('nav-hidden'); }
-      lastY=y;
-    };
+    var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>60);};
     window.addEventListener('scroll',onScroll,{passive:true});
     onScroll();
   }

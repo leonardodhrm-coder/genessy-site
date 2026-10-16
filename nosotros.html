@@ -9,7 +9,7 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#000;--bg2:#000;--bg3:#000;
+  --bg:#080808;--bg2:#0f0f0f;--bg3:#161616;
   --white:#f8f8f8;--silver:#c8c8c8;--silver-dim:#707070;--silver-subtle:#383838;
   --ease-out:cubic-bezier(.16,1,.3,1)}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
@@ -25,9 +25,8 @@ body::before{content:'';position:fixed;inset:0;z-index:9000;pointer-events:none;
   opacity:.025;background-size:200px 200px}
 
 /* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:80px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;transition:background .5s,border-color .5s,transform .7s cubic-bezier(.33,0,.15,1);background:transparent;border-bottom:1px solid transparent}
-.nav.nav-hidden{transform:translateY(-100%)}
-.nav.scrolled{background:rgba(0,0,0,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:80px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;transition:background .5s,border-color .5s;background:transparent;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(8,8,8,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom-color:rgba(255,255,255,.06)}
 .nav-logo img{height:36px;width:auto;transition:opacity .3s}
 .nav-logo img:hover{opacity:.7}
 .nav-back{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--silver-dim);transition:color .3s}
@@ -540,15 +539,7 @@ els.forEach(function(el){obs.observe(el)});
 (function(){
   var nav=document.querySelector('.nav');
   if(nav){
-    var lastY=window.scrollY;
-    var onScroll=function(){
-      var y=window.scrollY;
-      nav.classList.toggle('scrolled',y>60);
-      var delta=y-lastY;
-      if(delta>6 && y>240){ nav.classList.add('nav-hidden'); }
-      else if(delta<-6){ nav.classList.remove('nav-hidden'); }
-      lastY=y;
-    };
+    var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>60);};
     window.addEventListener('scroll',onScroll,{passive:true});
     onScroll();
   }

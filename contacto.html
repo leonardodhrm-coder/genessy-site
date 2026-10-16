@@ -22,9 +22,8 @@ html,body{background:#000;color:var(--white);font-family:var(--font-body);font-w
 a{color:inherit;text-decoration:none}
 
 /* ===== NAV ===== */
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:80px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;transition:background .5s,border-color .5s,transform .7s cubic-bezier(.33,0,.15,1);background:transparent;border-bottom:1px solid transparent}
-.nav.nav-hidden{transform:translateY(-100%)}
-.nav.scrolled{background:rgba(0,0,0,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:80px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;transition:background .5s,border-color .5s;background:transparent;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(8,8,8,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom-color:rgba(255,255,255,.06)}
 .nav-left,.nav-right{display:flex;align-items:center;gap:32px;flex:1}
 .nav-right{justify-content:flex-end}
 .nav-link{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--silver-dim);transition:color .3s}
@@ -191,55 +190,22 @@ a{color:inherit;text-decoration:none}
   .footer-links a{font-size:10px}
 }
 /* ===== RELOJES MUNDIALES (contacto) ===== */
-.world-clocks{padding:120px 48px;text-align:center}
-.world-clocks-frame{max-width:1080px;margin:0 auto;padding:40px 60px;position:relative}
-.clocks-eyebrow{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--silver-dim);margin-bottom:64px}
-.clocks-row{display:flex;justify-content:center;gap:80px;flex-wrap:wrap;max-width:900px;margin:0 auto}
-.clock{display:flex;flex-direction:column;align-items:center;gap:22px}
-.clock-face{width:150px;height:150px}
-.clock-circle{fill:none;stroke:var(--silver-subtle);stroke-width:.8}
-.clock-hand{stroke:var(--silver);stroke-width:1.2;stroke-linecap:round;transform-origin:50px 50px}
-.clock-min{stroke-width:.8}
+.world-clocks{padding:40px 60px 56px;text-align:center}
+.clocks-row{display:flex;justify-content:center;gap:56px;flex-wrap:wrap;max-width:760px;margin:0 auto}
+.clock{display:flex;flex-direction:column;align-items:center;gap:12px}
+.clock-face{width:84px;height:84px}
+.clock-circle{fill:none;stroke:var(--silver-subtle);stroke-width:1}
+.clock-hand{stroke:var(--silver);stroke-width:1.4;stroke-linecap:round;transform-origin:50px 50px}
+.clock-min{stroke-width:1}
 .clock-center{fill:var(--silver)}
-.clock-city{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--silver-dim)}
-.clock-time{font-family:'Cormorant Garamond',serif;font-size:30px;font-style:italic;color:var(--white);letter-spacing:1px}
-.clocks-legend{margin:80px auto 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:30px;color:var(--silver);max-width:560px;line-height:1.4}
-.clocks-legend span{display:block;font-size:13px;font-style:normal;letter-spacing:3px;text-transform:uppercase;color:var(--silver-dim);margin-top:16px}
-@media(max-width:900px){
-  .world-clocks{padding:80px 24px}
-  .world-clocks-frame{padding:60px 32px}
-  .clocks-row{gap:48px}
-  .clock-face{width:120px;height:120px}
-  .clock-time{font-size:26px}
-}
+.clock-city{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--silver-dim)}
+.clock-time{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--white);letter-spacing:1px}
+.clocks-legend{margin:44px auto 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--silver);max-width:420px}
+.clocks-legend span{display:block;font-size:13px;font-style:normal;letter-spacing:2px;text-transform:uppercase;color:var(--silver-dim);margin-top:8px}
 @media(max-width:600px){
-  .world-clocks-frame{padding:48px 20px}
-    .clocks-row{gap:40px}
-  .clock-face{width:104px;height:104px}
-  .clocks-legend{font-size:24px}
-  .clocks-eyebrow{margin-bottom:44px}
-}
-
-.btn-primary{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:16px 44px;border:1px solid var(--white);
-  font-size:11px;font-weight:300;letter-spacing:3px;text-transform:uppercase;
-  color:var(--white);transition:background .3s,color .3s;
-}
-.btn-primary:hover{background:var(--white);color:var(--bg)}
-
-.closing .btn-primary{margin-top:36px}
-
-/* Barra responsive en móvil (evita que se vea apretada) */
-@media(max-width:768px){
-  .nav{padding:0 28px}
-  .nav-left,.nav-right{gap:16px}
-  .nav-link{font-size:10px;letter-spacing:1.5px}
-}
-@media(max-width:600px){
-  .nav{padding:0 18px}
-  .nav-left,.nav-right{gap:11px}
-  .nav-link{font-size:9px;letter-spacing:1px}
+  .clocks-row{gap:32px}
+  .clock-face{width:68px;height:68px}
+  .clocks-legend{font-size:18px}
 }
 </style>
 </head>
@@ -259,18 +225,80 @@ a{color:inherit;text-decoration:none}
 </nav>
 
 <!-- ===== HERO ===== -->
-
 <section class="hero">
   <div class="hero-eyebrow">Contacto</div>
   <h1 class="hero-title">Hablemos</h1>
   <p class="hero-tagline">Trabajamos a distancia. Envíos asegurados a todo el mundo.</p>
+</section>
+
+<!-- ===== GRID 2 CARDS: Boutique + WhatsApp ===== -->
+<section class="contact-grid">
+  
+  <!-- CARD 1: OFICINAS GENESSY -->
+  <div class="contact-card">
+    <span class="contact-card-tag">Genessy · Guadalajara</span>
+    <h3 class="contact-card-title">Nuestras<br><em>oficinas</em></h3>
+    <div class="contact-info">
+      <div class="contact-info-row">
+        <span class="contact-info-label">Ubicación</span>
+        <span class="contact-info-value">Torre Morelos 2129<br>Guadalajara, Jalisco</span>
+      </div>
+      <div class="contact-info-row">
+        <span class="contact-info-label">Operación</span>
+        <span class="contact-info-value">Espacio privado. No abrimos al público.</span>
+      </div>
+      <div class="contact-info-row">
+        <span class="contact-info-label">Cómo trabajamos</span>
+        <span class="contact-info-value">Toda gestión, asesoría y entrega se coordina a distancia por WhatsApp o correo.</span>
+      </div>
+    </div>
+    <a href="https://maps.google.com/?q=Genessy+Jeweler%27s+Guadalajara" target="_blank" class="contact-cta">
+      Ver ubicación
+      <svg width="14" height="10" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M1 5h12M9 1l4 4-4 4"/></svg>
+    </a>
+  </div>
+  
+  <!-- CARD 2: ENVÍOS Y CONTACTO REMOTO -->
+  <div class="contact-card">
+    <span class="contact-card-tag">Envíos · A todo el mundo</span>
+    <h3 class="contact-card-title">Llegamos<br><em>a donde estés</em></h3>
+    <div class="contact-info">
+      <div class="contact-info-row">
+        <span class="contact-info-label">WhatsApp · Teléfono</span>
+        <span class="contact-info-value">+52 33 1419 2484</span>
+      </div>
+      <div class="contact-info-row">
+        <span class="contact-info-label">Correo</span>
+        <span class="contact-info-value"><a href="mailto:genessy.community@gmail.com" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--silver-subtle);transition:border-color .3s" onmouseover="this.style.borderColor='var(--white)'" onmouseout="this.style.borderColor='var(--silver-subtle)'">genessy.community@gmail.com</a></span>
+      </div>
+      <div class="contact-info-row">
+        <span class="contact-info-label">Envíos asegurados</span>
+        <span class="contact-info-value">Cada pieza viaja asegurada y con entrega documentada. A todo México y al extranjero.</span>
+      </div>
+    </div>
+    <a href="https://wa.me/523314192484" target="_blank" class="contact-cta">
+      Abrir WhatsApp
+      <svg width="14" height="10" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M1 5h12M9 1l4 4-4 4"/></svg>
+    </a>
+  </div>
+  
+</section>
+
+<!-- ===== REDES ===== -->
+<section class="social-section">
+  <div class="social-eyebrow">Redes</div>
+  <h2 class="social-title">Síguenos<br><em>en redes</em></h2>
+  <div class="social-links">
+    <a href="https://www.instagram.com/genessy.mx" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@genessy.mx" target="_blank">TikTok</a>
+    <a href="https://www.threads.com/@genessy.mx" target="_blank">Threads</a>
+    <a href="https://www.youtube.com/@GNSSY" target="_blank">YouTube</a>
   </div>
 </section>
 
+<!-- ===== CLOSING ===== -->
 <section class="world-clocks">
-  <div class="world-clocks-frame">
-  <p class="clocks-eyebrow">Un mismo tiempo</p>
-  <div class="clocks-row">
+    <div class="clocks-row">
       <div class="clock" data-tz="America/New_York">
         <svg class="clock-face" viewBox="0 0 100 100" aria-hidden="true">
           <circle class="clock-circle" cx="50" cy="50" r="47"/>
@@ -312,75 +340,13 @@ a{color:inherit;text-decoration:none}
         <span class="clock-time"></span>
       </div>
     </div>
-  <p class="clocks-legend">"Who cares, I'm already late." <span>Rolex</span></p>
-    </div>
-</section>
+    <p class="clocks-legend">"Who cares, I'm already late." <span>Rolex</span></p>
+  </section>
 
-<!-- ===== GRID 2 CARDS: Boutique + WhatsApp ===== -->
-<section class="contact-grid">
-  
-  <!-- CARD 1: OFICINAS GENESSY -->
-  <div class="contact-card">
-    <span class="contact-card-tag">Genessy · Guadalajara</span>
-    <h3 class="contact-card-title">Nuestras<br><em>oficinas</em></h3>
-    <div class="contact-info">
-      <div class="contact-info-row">
-        <span class="contact-info-label">Ubicación</span>
-        <span class="contact-info-value">Torre Morelos 2129<br>Guadalajara, Jalisco</span>
-      </div>
-      <div class="contact-info-row">
-        <span class="contact-info-label">Operación</span>
-        <span class="contact-info-value">Espacio privado. No abrimos al público.</span>
-      </div>
-      <div class="contact-info-row">
-        <span class="contact-info-label">Cómo trabajamos</span>
-        <span class="contact-info-value">Toda gestión, asesoría y entrega se coordina a distancia por WhatsApp o correo.</span>
-      </div>
-    </div>
-    <a href="https://maps.google.com/?q=Genessy+Jeweler%27s+Guadalajara" target="_blank" class="contact-cta">
-      Ver ubicación
-      <svg width="14" height="10" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M1 5h12M9 1l4 4-4 4"/></svg>
-    </a>
-  </div>
-  
-  <!-- CARD 2: ENVÍOS Y CONTACTO REMOTO -->
-  <div class="contact-card">
-    <span class="contact-card-tag">Envíos · A todo el mundo</span>
-    <h3 class="contact-card-title">Llegamos<br><em>a donde estés</em></h3>
-    <div class="contact-info">
-      <div class="contact-info-row">
-        <span class="contact-info-label">WhatsApp · Teléfono</span>
-        <span class="contact-info-value">+52 33 1419 2484</span>
-      </div>
-      <div class="contact-info-row">
-        <span class="contact-info-label">Correo</span>
-        <span class="contact-info-value"><a href="mailto:genessy.mx@icloud.com" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--silver-subtle);transition:border-color .3s" onmouseover="this.style.borderColor='var(--white)'" onmouseout="this.style.borderColor='var(--silver-subtle)'">genessy.mx@icloud.com</a></span>
-      </div>
-      <div class="contact-info-row">
-        <span class="contact-info-label">Envíos asegurados</span>
-        <span class="contact-info-value">Cada pieza viaja asegurada y con entrega documentada. A todo México y al extranjero.</span>
-      </div>
-    </div>
-    <a href="https://wa.me/523314192484" target="_blank" class="contact-cta">
-      Abrir WhatsApp
-      <svg width="14" height="10" viewBox="0 0 14 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M1 5h12M9 1l4 4-4 4"/></svg>
-    </a>
-  </div>
-  
+  <section class="closing">
+  <div class="closing-line"></div>
+  <p class="closing-text">Una pieza Genessy empieza con una conversación.</p>
 </section>
-
-<section class="social-section">
-  <div class="social-eyebrow">Redes</div>
-  <h2 class="social-title">Síguenos<br><em>en redes</em></h2>
-  <div class="social-links">
-    <a href="https://www.instagram.com/genessy.mx" target="_blank">Instagram</a>
-    <a href="https://www.tiktok.com/@genessy.mx" target="_blank">TikTok</a>
-    <a href="https://www.threads.com/@genessy.mx" target="_blank">Threads</a>
-    <a href="https://www.youtube.com/@GNSSY" target="_blank">YouTube</a>
-  </div>
-</section>
-
-  
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
@@ -410,15 +376,7 @@ a{color:inherit;text-decoration:none}
 (function(){
   var nav=document.querySelector('.nav');
   if(nav){
-    var lastY=window.scrollY;
-    var onScroll=function(){
-      var y=window.scrollY;
-      nav.classList.toggle('scrolled',y>60);
-      var delta=y-lastY;
-      if(delta>6 && y>240){ nav.classList.add('nav-hidden'); }
-      else if(delta<-6){ nav.classList.remove('nav-hidden'); }
-      lastY=y;
-    };
+    var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>60);};
     window.addEventListener('scroll',onScroll,{passive:true});
     onScroll();
   }

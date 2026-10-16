@@ -22,8 +22,7 @@ html,body{background:#f2f1ed;color:var(--white);font-family:var(--font-body);fon
 a{color:inherit;text-decoration:none}
 
 /* ===== NAV ===== */
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:80px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;transition:background .5s,border-color .5s,transform .7s cubic-bezier(.33,0,.15,1);background:transparent;border-bottom:1px solid transparent}
-.nav.nav-hidden{transform:translateY(-100%)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:80px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;transition:background .5s,border-color .5s;background:transparent;border-bottom:1px solid transparent}
 .nav.scrolled{background:rgba(242,241,237,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom-color:rgba(0,0,0,.08)}
 .nav-left,.nav-right{display:flex;align-items:center;gap:32px;flex:1}
 .nav-right{justify-content:flex-end}
@@ -260,41 +259,6 @@ a{color:inherit;text-decoration:none}
   .footer-links{gap:20px}
   .footer-links a{font-size:10px}
 }
-
-.herencia-card-sku{ font-size:10px; letter-spacing:1.5px; color:var(--silver-dim); font-family:var(--font-body); margin-top:-4px; }
-
-/* ===== MÁS COLECCIONES (deslizable infinito) ===== */
-.more-collections{padding:52px 0;text-align:center;border-top:1px solid rgba(192,192,192,.08);overflow:hidden}
-.more-collections-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--silver-dim);margin-bottom:28px}
-.more-collections-row{display:flex;align-items:center;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;cursor:grab;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.more-collections-row::-webkit-scrollbar{display:none}
-.more-collections-row.dragging{cursor:grabbing}
-.more-collections-row a{flex:0 0 auto;font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,34px);font-weight:300;color:var(--silver-dim);text-decoration:none;padding:0 34px;transition:color .4s var(--ease-out);white-space:nowrap;user-select:none}
-.more-collections-row a:hover{color:var(--white)}
-@media(max-width:640px){
-  .more-collections{padding:40px 0}
-  .more-collections-row a{font-size:22px;padding:0 22px}
-}
-
-/* Barra responsive en móvil (evita que se vea apretada) */
-@media(max-width:768px){
-  .nav{padding:0 28px}
-  .nav-left,.nav-right{gap:16px}
-  .nav-link{font-size:10px;letter-spacing:1.5px}
-}
-@media(max-width:600px){
-  .nav{padding:0 18px}
-  .nav-left,.nav-right{gap:11px}
-  .nav-link{font-size:9px;letter-spacing:1px}
-}
-
-/* Grid responsive: 2 columnas en tablet y móvil */
-@media(max-width:900px){
-  .herencia-grid{grid-template-columns:repeat(2,1fr);gap:40px 24px}
-}
-@media(max-width:600px){
-  .herencia-grid{grid-template-columns:repeat(2,1fr);gap:28px 14px}
-}
 </style>
 </head>
 <body>
@@ -321,7 +285,6 @@ a{color:inherit;text-decoration:none}
 </section>
 
 <!-- ===== FILTROS POR TIPO (opcional, descomenta cuando definas tipos) ===== -->
-<!--
 <div class="herencia-filters">
   <button class="herencia-filter is-active" data-filter="all">Todas</button>
   <button class="herencia-filter" data-filter="pulso">Pulsos</button>
@@ -331,7 +294,6 @@ a{color:inherit;text-decoration:none}
   <button class="herencia-filter" data-filter="dije">Dijes</button>
   <button class="herencia-filter" data-filter="aretes">Aretes</button>
 </div>
--->
 
 <!-- ===== GRID DE PIEZAS ===== -->
 <section class="herencia-grid-section">
@@ -356,7 +318,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Cruz</span>
         <h3 class="herencia-card-name">Cemetery <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50532</span>
       </div>
     </a>
     
@@ -378,7 +339,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Clavo · Cruz floral</span>
         <h3 class="herencia-card-name">Nail <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50533</span>
       </div>
     </a>
     
@@ -401,7 +361,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Cruz floral</span>
         <h3 class="herencia-card-name">Infinity <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50534</span>
       </div>
     </a>
     
@@ -424,7 +383,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Cruz floral</span>
         <h3 class="herencia-card-name">Heart Double Floral Cross <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50535</span>
       </div>
     </a>
     
@@ -447,7 +405,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Cadena · Eslabón · Cartera</span>
         <h3 class="herencia-card-name">Fancy Link Wallet <em>Chain</em></h3>
-        <span class="herencia-card-sku">GNSSY50536</span>
       </div>
     </a>
     
@@ -470,7 +427,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Cadena · Rosario</span>
         <h3 class="herencia-card-name">Tiny E Choke <em>Chain Necklace</em></h3>
-        <span class="herencia-card-sku">GNSSY50537</span>
       </div>
     </a>
     
@@ -493,7 +449,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Cadena · Cruz · Zafiro rosa</span>
         <h3 class="herencia-card-name">Pink Sapphire Filigree Cross on Tiny E Chain <em>Necklace</em></h3>
-        <span class="herencia-card-sku">GNSSY50538</span>
       </div>
     </a>
     
@@ -516,7 +471,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Cruz floral</span>
         <h3 class="herencia-card-name">Rhodium Diamond <em>Floral Cross Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50539</span>
       </div>
     </a>
     
@@ -541,7 +495,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Pulso · Cruz floral</span>
         <h3 class="herencia-card-name">Tiny E <em>Bracelet</em></h3>
-        <span class="herencia-card-sku">GNSSY50540</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -562,7 +515,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Pulso · Cruz floral</span>
         <h3 class="herencia-card-name">Plus Ball <em>Bracelet</em></h3>
-        <span class="herencia-card-sku">GNSSY50541</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -583,7 +535,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Pulso · Cruz floral</span>
         <h3 class="herencia-card-name">Extra Fancy <em>Link Bracelet</em></h3>
-        <span class="herencia-card-sku">GNSSY50542</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -604,7 +555,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Pulso · Cruz floral</span>
         <h3 class="herencia-card-name">Floral Cross Fancy Link <em>ID Bracelet</em></h3>
-        <span class="herencia-card-sku">GNSSY50543</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -617,7 +567,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Calavera</span>
         <h3 class="herencia-card-name">Foti Harris Teeter <em>Cable Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50544</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -640,7 +589,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Cadena · Cruz · Rubí</span>
         <h3 class="herencia-card-name">Ruby Baby Fat Pendant on Roll Chain <em>Necklace</em></h3>
-        <span class="herencia-card-sku">GNSSY50545</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -661,7 +609,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Cruz floral</span>
         <h3 class="herencia-card-name">Cross Bubblegum <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50546</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -674,7 +621,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Enredadera</span>
         <h3 class="herencia-card-name">Vine Band <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50547</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -695,7 +641,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Cruz floral</span>
         <h3 class="herencia-card-name">Keeper <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50548</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -717,7 +662,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Cadena · Daga · Silicón</span>
         <h3 class="herencia-card-name">Silichrome Dagger <em>Necklace</em></h3>
-        <span class="herencia-card-sku">GNSSY50549</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -739,7 +683,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Cadena · Cruz · Silicón</span>
         <h3 class="herencia-card-name">Silichrome Cross <em>Necklace</em></h3>
-        <span class="herencia-card-sku">GNSSY50550</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -761,7 +704,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Cadena · Cruz · Silicón</span>
         <h3 class="herencia-card-name">Silichrome Cross <em>Necklace</em></h3>
-        <span class="herencia-card-sku">GNSSY50551</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -782,7 +724,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Pulso · Cruz floral</span>
         <h3 class="herencia-card-name">Floral Cross <em>ID Bracelet</em></h3>
-        <span class="herencia-card-sku">GNSSY50552</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -804,7 +745,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Cadena · Flor de lis · Silicón</span>
         <h3 class="herencia-card-name">Silichrome Fleur <em>Necklace</em></h3>
-        <span class="herencia-card-sku">GNSSY50553</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -826,7 +766,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Cadena · Candado · Silicón</span>
         <h3 class="herencia-card-name">Silichrome Lock <em>Necklace</em></h3>
-        <span class="herencia-card-sku">GNSSY50554</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -848,7 +787,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Cadena · Cruz · Silicón</span>
         <h3 class="herencia-card-name">Silichrome Cross <em>Necklace</em></h3>
-        <span class="herencia-card-sku">GNSSY50555</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -870,7 +808,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Cadena · Cruz · Silicón</span>
         <h3 class="herencia-card-name">Silichrome Cross <em>Necklace</em></h3>
-        <span class="herencia-card-sku">GNSSY50556</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -892,7 +829,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Cruz floral</span>
         <h3 class="herencia-card-name">Oval Cross <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50557</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -913,7 +849,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Pulso · Cadena</span>
         <h3 class="herencia-card-name">Paper Chain <em>Bracelet</em></h3>
-        <span class="herencia-card-sku">GNSSY50558</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -935,7 +870,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Cruz · Oro</span>
         <h3 class="herencia-card-name">Gold Plus Cross <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50559</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -957,7 +891,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Cruz floral</span>
         <h3 class="herencia-card-name">Double Floral Cross <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50560</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -979,7 +912,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Cruz floral · 22k</span>
         <h3 class="herencia-card-name">22k Double Floral Cross <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50561</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1000,7 +932,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Dije · Cruz · Diamantes · 22k</span>
         <h3 class="herencia-card-name">22k Gold &amp; Diamond Filigree Cross <em>Pendant</em></h3>
-        <span class="herencia-card-sku">GNSSY50562</span>
       </div>
     </a>
       <!-- ============================================================== -->
@@ -1022,7 +953,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Dije · Daga · Diamantes · 22k</span>
         <h3 class="herencia-card-name">Gold Diamond Dagger <em>Pendant</em></h3>
-        <span class="herencia-card-sku">GNSSY50563</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1044,7 +974,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Cruz · Diamantes · 22k</span>
         <h3 class="herencia-card-name">22k Gold Diamond Infinity <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50564</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1066,7 +995,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Pulso · Cuentas · Ónix · Oro · 22k</span>
         <h3 class="herencia-card-name">22k Gold Cross Multi Charm Bead <em>Bracelet</em></h3>
-        <span class="herencia-card-sku">GNSSY50565</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1088,7 +1016,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Pulso · Cuentas · Ágata blanca · 22k</span>
         <h3 class="herencia-card-name">22k Gold Cross Multi Charm Bead <em>Bracelet</em></h3>
-        <span class="herencia-card-sku">GNSSY50566</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1110,7 +1037,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Cadena · Cruz · Diamantes · Oro</span>
         <h3 class="herencia-card-name">Gold Diamond Tiny Fat on Roll <em>Chain</em></h3>
-        <span class="herencia-card-sku">GNSSY50567</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1132,7 +1058,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Pulso · Brazalete · Oro blanco · 18k</span>
         <h3 class="herencia-card-name">18k White Gold Love <em>Bracelet</em></h3>
-        <span class="herencia-card-sku">GNSSY50568</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1154,7 +1079,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Pulso · Clavo · Oro blanco · 18k</span>
         <h3 class="herencia-card-name">18k White Gold Nail <em>Bracelet</em></h3>
-        <span class="herencia-card-sku">GNSSY50569</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1176,7 +1100,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Cadena · Tennis · Diamantes naturales · 14k</span>
         <h3 class="herencia-card-name">Invisible Setting Natural Diamond Tennis Chain <em>Necklace</em></h3>
-        <span class="herencia-card-sku">GNSSY50570</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1198,7 +1121,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Cruz floral · Zafiro rosa</span>
         <h3 class="herencia-card-name">Pink Sapphire Double Floral Cross <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50571</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1219,7 +1141,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Cruces · Plata</span>
         <h3 class="herencia-card-name">Cross Tail <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50572</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1240,7 +1161,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Cruz floral · Diamantes · Oro</span>
         <h3 class="herencia-card-name">Gold Diamond Floral Cross <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50573</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1262,7 +1182,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Pulso · Cruces · Plata</span>
         <h3 class="herencia-card-name">Tiny Plus <em>Bracelet</em></h3>
-        <span class="herencia-card-sku">GNSSY50574</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1286,7 +1205,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Cruz floral · Cannoli</span>
         <h3 class="herencia-card-name">Large Cannoli Multi Cross <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50575</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1307,7 +1225,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Corazón · Cruz floral</span>
         <h3 class="herencia-card-name">Plus Cross Heart Cutout <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50576</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1329,7 +1246,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Banda · Cruz floral</span>
         <h3 class="herencia-card-name">Fuck You Spacer <em>Ring</em></h3>
-        <span class="herencia-card-sku">GNSSY50577</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1350,7 +1266,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Pulso · Cuentas · Cruz floral · 6mm</span>
         <h3 class="herencia-card-name">6mm Plus Cross Bead <em>Bracelet</em></h3>
-        <span class="herencia-card-sku">GNSSY50578</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1371,7 +1286,6 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Pulso · Coral · Cruz floral · 6mm</span>
         <h3 class="herencia-card-name">6mm Coral Multi Charm Bead <em>Bracelet</em></h3>
-        <span class="herencia-card-sku">GNSSY50579</span>
       </div>
     </a>
     <!-- ============================================================== -->
@@ -1392,36 +1306,16 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Arete · Oro · Cruz floral · Diamante</span>
         <h3 class="herencia-card-name">Gold Diamond Plus Cross <em>Earring</em></h3>
-        <span class="herencia-card-sku">GNSSY50580</span>
       </div>
     </a>
   </div>
 </section>
 
-  <!-- MÁS COLECCIONES -->
-  <section class="more-collections">
-    <p class="more-collections-eyebrow">Explora más</p>
-    <div class="more-collections-row" id="mcRow">
-        <a href="herencia.html">Herencia</a>
-        <a href="eter.html">Éter</a>
-        <a href="eclat.html">Éclat</a>
-        <a href="argent.html">Argent</a>
-        <a href="maison.html">Maison</a>
-        <a href="fortuna.html">Fortuna</a>
-        <a href="herencia.html">Herencia</a>
-        <a href="eter.html">Éter</a>
-        <a href="eclat.html">Éclat</a>
-        <a href="argent.html">Argent</a>
-        <a href="maison.html">Maison</a>
-        <a href="fortuna.html">Fortuna</a>
-        <a href="herencia.html">Herencia</a>
-        <a href="eter.html">Éter</a>
-        <a href="eclat.html">Éclat</a>
-        <a href="argent.html">Argent</a>
-        <a href="maison.html">Maison</a>
-        <a href="fortuna.html">Fortuna</a>
-      </div>
-  </section>
+<!-- ===== SECCIÓN EDITORIAL "SOBRE HERENCIA" ===== -->
+<section class="herencia-story">
+  <div class="herencia-story-eyebrow">Sobre Cathedral</div>
+  <p class="herencia-story-text">Las catedrales se llenaron de símbolos por una razón. Cada figura contaba algo. Cada forma protegía algo. Cathedral retoma ese lenguaje en piezas de plata oxidada para usar todos los días.</p>
+</section>
 
 <!-- ===== BLOQUE BÚSQUEDA ESPECIALIZADA ===== -->
 <section class="searchblock">
@@ -1462,15 +1356,7 @@ a{color:inherit;text-decoration:none}
 (function(){
   var nav=document.querySelector('.nav');
   if(nav){
-    var lastY=window.scrollY;
-    var onScroll=function(){
-      var y=window.scrollY;
-      nav.classList.toggle('scrolled',y>60);
-      var delta=y-lastY;
-      if(delta>6 && y>240){ nav.classList.add('nav-hidden'); }
-      else if(delta<-6){ nav.classList.remove('nav-hidden'); }
-      lastY=y;
-    };
+    var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>60);};
     window.addEventListener('scroll',onScroll,{passive:true});
     onScroll();
   }
@@ -1524,27 +1410,5 @@ a{color:inherit;text-decoration:none}
   });
 })();
 </script>
-
-<script>
-(function(){
-  var row=document.getElementById('mcRow');
-  if(!row) return;
-  var isDown=false,startX,scrollLeft,moved=false;
-  // arrancar en el CENTRO del bloque central (no en su borde) para tener margen a ambos lados
-  function center(){row.scrollLeft=(row.scrollWidth-row.clientWidth)/2;}
-  window.addEventListener('load',center);setTimeout(center,120);
-  // loop simétrico: si te acercas a cualquier extremo, saltas un tercio hacia el centro
-  row.addEventListener('scroll',function(){
-    var third=row.scrollWidth/3;
-    var max=row.scrollWidth-row.clientWidth;
-    if(row.scrollLeft<=2){row.scrollLeft+=third;}
-    else if(row.scrollLeft>=max-2){row.scrollLeft-=third;}
-  });
-  row.addEventListener('mousedown',function(e){isDown=true;moved=false;row.classList.add('dragging');startX=e.pageX-row.offsetLeft;scrollLeft=row.scrollLeft});
-  row.addEventListener('mouseleave',function(){isDown=false;row.classList.remove('dragging')});
-  row.addEventListener('mouseup',function(){isDown=false;row.classList.remove('dragging')});
-  row.addEventListener('mousemove',function(e){if(!isDown)return;e.preventDefault();moved=true;var x=e.pageX-row.offsetLeft;row.scrollLeft=scrollLeft-(x-startX)*1.5});
-  row.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(e){if(moved)e.preventDefault()})});
-})();
-</script></body>
+</body>
 </html>
