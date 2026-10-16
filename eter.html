@@ -22,8 +22,9 @@ html,body{background:#000;color:var(--white);font-family:var(--font-body);font-w
 a{color:inherit;text-decoration:none}
 
 /* ===== NAV ===== */
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:80px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;transition:background .5s,border-color .5s;background:transparent;border-bottom:1px solid transparent}
-.nav.scrolled{background:rgba(8,8,8,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom-color:rgba(255,255,255,.06)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:80px;padding:0 60px;display:flex;align-items:center;justify-content:space-between;transition:background .5s,border-color .5s,transform .7s cubic-bezier(.33,0,.15,1);background:transparent;border-bottom:1px solid transparent}
+.nav.nav-hidden{transform:translateY(-100%)}
+.nav.scrolled{background:rgba(0,0,0,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
 .nav-left,.nav-right{display:flex;align-items:center;gap:32px;flex:1}
 .nav-right{justify-content:flex-end}
 .nav-link{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--silver-dim);transition:color .3s}
@@ -250,6 +251,41 @@ a{color:inherit;text-decoration:none}
   .footer-links{gap:20px}
   .footer-links a{font-size:10px}
 }
+
+.herencia-card-sku{ font-size:10px; letter-spacing:1.5px; color:var(--silver-subtle); font-family:var(--font-body); margin-top:-4px; }
+
+/* ===== MÁS COLECCIONES (deslizable infinito) ===== */
+.more-collections{padding:52px 0;text-align:center;border-top:1px solid rgba(192,192,192,.08);overflow:hidden}
+.more-collections-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--silver-dim);margin-bottom:28px}
+.more-collections-row{display:flex;align-items:center;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;cursor:grab;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.more-collections-row::-webkit-scrollbar{display:none}
+.more-collections-row.dragging{cursor:grabbing}
+.more-collections-row a{flex:0 0 auto;font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,34px);font-weight:300;color:var(--silver-dim);text-decoration:none;padding:0 34px;transition:color .4s var(--ease-out);white-space:nowrap;user-select:none}
+.more-collections-row a:hover{color:var(--white)}
+@media(max-width:640px){
+  .more-collections{padding:40px 0}
+  .more-collections-row a{font-size:22px;padding:0 22px}
+}
+
+/* Barra responsive en móvil (evita que se vea apretada) */
+@media(max-width:768px){
+  .nav{padding:0 28px}
+  .nav-left,.nav-right{gap:16px}
+  .nav-link{font-size:10px;letter-spacing:1.5px}
+}
+@media(max-width:600px){
+  .nav{padding:0 18px}
+  .nav-left,.nav-right{gap:11px}
+  .nav-link{font-size:9px;letter-spacing:1px}
+}
+
+/* Grid responsive: 2 columnas en tablet y móvil */
+@media(max-width:900px){
+  .herencia-grid{grid-template-columns:repeat(2,1fr);gap:40px 24px}
+}
+@media(max-width:600px){
+  .herencia-grid{grid-template-columns:repeat(2,1fr);gap:28px 14px}
+}
 </style>
 </head>
 <body>
@@ -310,6 +346,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Pulso · Esmeralda · Broche 10K</span>
         <h3 class="herencia-card-name"><em>Enredadera</em></h3>
+        <span class="herencia-card-sku">GNSSY50381</span>
       </div>
     </a>
     
@@ -331,6 +368,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Perla natural · 10K · 41 cm</span>
         <h3 class="herencia-card-name"><em>Luna</em></h3>
+        <span class="herencia-card-sku">GNSSY50388</span>
       </div>
     </a>
     
@@ -352,6 +390,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Perla natural · 10K · 41 cm</span>
         <h3 class="herencia-card-name"><em>Trilogía</em></h3>
+        <span class="herencia-card-sku">GNSSY50408</span>
       </div>
     </a>
     
@@ -375,6 +414,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Turmalina · Broche 10K</span>
         <h3 class="herencia-card-name">Collar turmalina con <em>gota</em></h3>
+        <span class="herencia-card-sku">GNSSY50391</span>
       </div>
     </a>
     
@@ -393,6 +433,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Perla y Turmalina · Broche 10K</span>
         <h3 class="herencia-card-name">Collar perlas y turmalinas <em>naturales</em></h3>
+        <span class="herencia-card-sku">GNSSY50392</span>
       </div>
     </a>
     
@@ -414,6 +455,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Turmalina · Broche 10K</span>
         <h3 class="herencia-card-name">Collar de turmalina <em>rainbow</em></h3>
+        <span class="herencia-card-sku">GNSSY50393</span>
       </div>
     </a>
     
@@ -435,6 +477,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Rubí · Broche 10K</span>
         <h3 class="herencia-card-name">Collar natural de <em>rubí</em></h3>
+        <span class="herencia-card-sku">GNSSY50394</span>
       </div>
     </a>
     
@@ -460,6 +503,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Dije · Rubí y Diamante 14K</span>
         <h3 class="herencia-card-name">Sagrado Corazón trepado de <em>rubíes</em></h3>
+        <span class="herencia-card-sku">GNSSY50395</span>
       </div>
     </a>
     
@@ -481,6 +525,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Aretes · Esmeralda 14K</span>
         <h3 class="herencia-card-name">Broqueles oro amarillo porta <em>esmeralda</em></h3>
+        <span class="herencia-card-sku">GNSSY50396</span>
       </div>
     </a>
     
@@ -502,6 +547,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Aretes · Esmeralda 14K</span>
         <h3 class="herencia-card-name">Broqueles gota porta <em>esmeralda</em> full ice</h3>
+        <span class="herencia-card-sku">GNSSY50397</span>
       </div>
     </a>
     
@@ -523,6 +569,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Pulso · Esmeralda y Diamante 14K · 17.5 cm</span>
         <h3 class="herencia-card-name">Pulso tennis de <em>esmeralda</em> con diamantes</h3>
+        <span class="herencia-card-sku">GNSSY50398</span>
       </div>
     </a>
     
@@ -544,6 +591,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Dije · Oro blanco 14K · Rubí .04 CT · Diamante .12 CT</span>
         <h3 class="herencia-card-name">Mini sagrado corazón de <em>rubí</em></h3>
+        <span class="herencia-card-sku">GNSSY50399</span>
       </div>
     </a>
     
@@ -566,6 +614,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Dije · Oro amarillo 14K · Diamante Negro .15 CT · Diamante .02 CT</span>
         <h3 class="herencia-card-name">Mini sagrado corazón de <em>diamante negro</em></h3>
+        <span class="herencia-card-sku">GNSSY50400</span>
       </div>
     </a>
     
@@ -584,6 +633,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Dije · Oro amarillo 14K · Esmeralda .12 CT · Diamante .02 CT</span>
         <h3 class="herencia-card-name">Mini sagrado corazón de <em>esmeralda</em></h3>
+        <span class="herencia-card-sku">GNSSY50401</span>
       </div>
     </a>
     
@@ -605,6 +655,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Dije · Oro amarillo 14K · Zafiro .17 CT · Diamante .02 CT</span>
         <h3 class="herencia-card-name">Mini sagrado corazón de <em>zafiro</em></h3>
+        <span class="herencia-card-sku">GNSSY50402</span>
       </div>
     </a>
     
@@ -623,6 +674,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Oro amarillo 14K · 36 Diamantes .10 CT · # 6.5</span>
         <h3 class="herencia-card-name">Anillo <em>clavo</em> con diamantes</h3>
+        <span class="herencia-card-sku">GNSSY50403</span>
       </div>
     </a>
     
@@ -645,6 +697,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Oro 14K · Amarillo y Blanco · 46 cm + 5 cm ajustable</span>
         <h3 class="herencia-card-name">Collar solitario de <em>esmeralda</em></h3>
+        <span class="herencia-card-sku">GNSSY50404</span>
       </div>
     </a>
     
@@ -663,6 +716,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Dije · Oro amarillo 14K · 1 Esmeralda .55 CT</span>
         <h3 class="herencia-card-name">Dije de <em>esmeralda</em></h3>
+        <span class="herencia-card-sku">GNSSY50405</span>
       </div>
     </a>
     
@@ -684,6 +738,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Oro amarillo 14K · 1 Esmeralda 1.65 CT · 46 cm + 5 cm ajustable</span>
         <h3 class="herencia-card-name">Collar solitario de <em>esmeralda</em> redonda</h3>
+        <span class="herencia-card-sku">GNSSY50406</span>
       </div>
     </a>
     
@@ -702,6 +757,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Oro amarillo 14K · Zafiro Rosa</span>
         <h3 class="herencia-card-name">Collar solitario de <em>zafiro rosa</em></h3>
+        <span class="herencia-card-sku">GNSSY50407</span>
       </div>
     </a>
     
@@ -720,6 +776,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Oro blanco 14K · Esmeralda .55 CT · Diamante .05 CT</span>
         <h3 class="herencia-card-name"><em>Dualité</em></h3>
+        <span class="herencia-card-sku">GNSSY50409</span>
       </div>
     </a>
     
@@ -742,6 +799,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Oro blanco 14K · Esmeralda · Banda de diamantes</span>
         <h3 class="herencia-card-name">Solitario esmeralda <em>pavé</em></h3>
+        <span class="herencia-card-sku">GNSSY50410</span>
       </div>
     </a>
     
@@ -765,6 +823,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Oro blanco 14K · Zafiro · Halo de diamantes</span>
         <h3 class="herencia-card-name">Anillo de <em>zafiro</em> con halo</h3>
+        <span class="herencia-card-sku">GNSSY50411</span>
       </div>
     </a>
     
@@ -786,6 +845,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Oro blanco 14K · Zafiro · Banda de diamantes</span>
         <h3 class="herencia-card-name">Solitario zafiro <em>pavé</em></h3>
+        <span class="herencia-card-sku">GNSSY50412</span>
       </div>
     </a>
     
@@ -808,6 +868,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Oro blanco 14K · Esmeralda oval · Banda de diamantes</span>
         <h3 class="herencia-card-name">Solitario esmeralda oval <em>pavé</em></h3>
+        <span class="herencia-card-sku">GNSSY50413</span>
       </div>
     </a>
     
@@ -829,6 +890,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Oro blanco 14K · Rubí · Banda de diamantes</span>
         <h3 class="herencia-card-name">Solitario rubí <em>pavé</em></h3>
+        <span class="herencia-card-sku">GNSSY50414</span>
       </div>
     </a>
     
@@ -851,6 +913,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Oro blanco 14K · Rubí oval · Banda de diamantes</span>
         <h3 class="herencia-card-name">Solitario rubí oval <em>pavé</em></h3>
+        <span class="herencia-card-sku">GNSSY50415</span>
       </div>
     </a>
     
@@ -869,6 +932,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Oro blanco 14K · Rubí · Halo de diamantes</span>
         <h3 class="herencia-card-name">Collar de <em>rubí</em> con halo</h3>
+        <span class="herencia-card-sku">GNSSY50416</span>
       </div>
     </a>
     
@@ -887,6 +951,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Oro blanco 14K · Zafiro · Halo de diamantes</span>
         <h3 class="herencia-card-name">Collar de <em>zafiro</em> con halo</h3>
+        <span class="herencia-card-sku">GNSSY50417</span>
       </div>
     </a>
     
@@ -905,6 +970,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Oro blanco 14K · Esmeralda · Halo de diamantes</span>
         <h3 class="herencia-card-name">Collar de <em>esmeralda</em> con halo</h3>
+        <span class="herencia-card-sku">GNSSY50418</span>
       </div>
     </a>
     
@@ -926,6 +992,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Oro blanco 14K · Rubí · Halo de diamantes</span>
         <h3 class="herencia-card-name">Anillo de <em>rubí</em> con halo</h3>
+        <span class="herencia-card-sku">GNSSY50419</span>
       </div>
     </a>
     
@@ -944,6 +1011,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Oro blanco 14K · Rubí cojín · Halo de diamantes</span>
         <h3 class="herencia-card-name">Anillo de <em>rubí</em> cojín con halo</h3>
+        <span class="herencia-card-sku">GNSSY50420</span>
       </div>
     </a>
     
@@ -962,6 +1030,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Oro blanco 14K · Esmeralda oval · Halo de diamantes</span>
         <h3 class="herencia-card-name">Anillo de <em>esmeralda</em> oval con halo</h3>
+        <span class="herencia-card-sku">GNSSY50421</span>
       </div>
     </a>
     
@@ -980,6 +1049,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Oro blanco 14K · Esmeralda cojín · Halo de diamantes</span>
         <h3 class="herencia-card-name">Anillo de <em>esmeralda</em> cojín con halo</h3>
+        <span class="herencia-card-sku">GNSSY50422</span>
       </div>
     </a>
     
@@ -1001,6 +1071,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Oro blanco · Zafiro y Diamante · Ancho 2.6 mm</span>
         <h3 class="herencia-card-name">Churumbela <em>zafiro y diamante</em></h3>
+        <span class="herencia-card-sku">GNSSY50423</span>
       </div>
     </a>
     
@@ -1022,6 +1093,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Oro amarillo · Esmeralda · Línea tennis</span>
         <h3 class="herencia-card-name">Collar tennis de <em>esmeralda</em></h3>
+        <span class="herencia-card-sku">GNSSY50424</span>
       </div>
     </a>
     
@@ -1045,6 +1117,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Aretes · Diamante Negro 14K</span>
         <h3 class="herencia-card-name">Arete mini <em>diamante negro</em> con halo</h3>
+        <span class="herencia-card-sku">GNSSY50382</span>
       </div>
     </a>
     
@@ -1067,6 +1140,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Anillo · Oro amarillo 14K · # 6.5</span>
         <h3 class="herencia-card-name">Anillo <em>esmeralda</em> biselada</h3>
+        <span class="herencia-card-sku">GNSSY50383</span>
       </div>
     </a>
     
@@ -1088,6 +1162,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Zafiro degradado · Broche 10K</span>
         <h3 class="herencia-card-name">Collar <em>Zafiro Degradado</em></h3>
+        <span class="herencia-card-sku">GNSSY50384</span>
       </div>
     </a>
     
@@ -1109,6 +1184,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Amatista · Dona y broche 10K</span>
         <h3 class="herencia-card-name">Collar <em>Amatista</em></h3>
+        <span class="herencia-card-sku">GNSSY50385</span>
       </div>
     </a>
     
@@ -1130,6 +1206,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Zafiro multicolor natural · 45 cm · Broche 10K</span>
         <h3 class="herencia-card-name">Collar Zafiro <em>Multicolor</em></h3>
+        <span class="herencia-card-sku">GNSSY50386</span>
       </div>
     </a>
     
@@ -1151,6 +1228,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Dije · Oro amarillo 14K · Rubí .15 CT · Diamante .02 CT</span>
         <h3 class="herencia-card-name">Mini sagrado corazón de <em>rubí</em></h3>
+        <span class="herencia-card-sku">GNSSY50387</span>
       </div>
     </a>
 
@@ -1175,6 +1253,7 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Esmeralda degradada · Broche 10K</span>
         <h3 class="herencia-card-name">Collar <em>Esmeralda Degradada</em></h3>
+        <span class="herencia-card-sku">GNSSY50389</span>
       </div>
     </a>
     
@@ -1197,17 +1276,37 @@ a{color:inherit;text-decoration:none}
       <div class="herencia-card-info">
         <span class="herencia-card-tag">Collar · Esmeralda · Acentos de oro · Broche 10K</span>
         <h3 class="herencia-card-name">Collar <em>Esmeralda Intensa</em></h3>
+        <span class="herencia-card-sku">GNSSY50390</span>
       </div>
     </a>
     
   </div>
 </section>
 
-<!-- ===== SECCIÓN EDITORIAL "SOBRE HERENCIA" ===== -->
-<section class="herencia-story">
-  <div class="herencia-story-eyebrow">Sobre Éter</div>
-  <p class="herencia-story-text">La gema favorita rara vez se elige por su nombre. Se elige porque ese verde hizo algo. Porque ese azul nunca lo habías visto. Éter reúne las gemas, de la tierra o cultivadas, que cargan ese encuentro.</p>
-</section>
+  <!-- MÁS COLECCIONES -->
+  <section class="more-collections">
+    <p class="more-collections-eyebrow">Explora más</p>
+    <div class="more-collections-row" id="mcRow">
+        <a href="herencia.html">Herencia</a>
+        <a href="eclat.html">Éclat</a>
+        <a href="argent.html">Argent</a>
+        <a href="maison.html">Maison</a>
+        <a href="cathedral.html">Cathedral</a>
+        <a href="fortuna.html">Fortuna</a>
+        <a href="herencia.html">Herencia</a>
+        <a href="eclat.html">Éclat</a>
+        <a href="argent.html">Argent</a>
+        <a href="maison.html">Maison</a>
+        <a href="cathedral.html">Cathedral</a>
+        <a href="fortuna.html">Fortuna</a>
+        <a href="herencia.html">Herencia</a>
+        <a href="eclat.html">Éclat</a>
+        <a href="argent.html">Argent</a>
+        <a href="maison.html">Maison</a>
+        <a href="cathedral.html">Cathedral</a>
+        <a href="fortuna.html">Fortuna</a>
+      </div>
+  </section>
 
 <!-- ===== BLOQUE BÚSQUEDA ESPECIALIZADA ===== -->
 <section class="searchblock">
@@ -1248,7 +1347,15 @@ a{color:inherit;text-decoration:none}
 (function(){
   var nav=document.querySelector('.nav');
   if(nav){
-    var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>60);};
+    var lastY=window.scrollY;
+    var onScroll=function(){
+      var y=window.scrollY;
+      nav.classList.toggle('scrolled',y>60);
+      var delta=y-lastY;
+      if(delta>6 && y>240){ nav.classList.add('nav-hidden'); }
+      else if(delta<-6){ nav.classList.remove('nav-hidden'); }
+      lastY=y;
+    };
     window.addEventListener('scroll',onScroll,{passive:true});
     onScroll();
   }
@@ -1309,5 +1416,27 @@ a{color:inherit;text-decoration:none}
   });
 })();
 </script>
-</body>
+
+<script>
+(function(){
+  var row=document.getElementById('mcRow');
+  if(!row) return;
+  var isDown=false,startX,scrollLeft,moved=false;
+  // arrancar en el CENTRO del bloque central (no en su borde) para tener margen a ambos lados
+  function center(){row.scrollLeft=(row.scrollWidth-row.clientWidth)/2;}
+  window.addEventListener('load',center);setTimeout(center,120);
+  // loop simétrico: si te acercas a cualquier extremo, saltas un tercio hacia el centro
+  row.addEventListener('scroll',function(){
+    var third=row.scrollWidth/3;
+    var max=row.scrollWidth-row.clientWidth;
+    if(row.scrollLeft<=2){row.scrollLeft+=third;}
+    else if(row.scrollLeft>=max-2){row.scrollLeft-=third;}
+  });
+  row.addEventListener('mousedown',function(e){isDown=true;moved=false;row.classList.add('dragging');startX=e.pageX-row.offsetLeft;scrollLeft=row.scrollLeft});
+  row.addEventListener('mouseleave',function(){isDown=false;row.classList.remove('dragging')});
+  row.addEventListener('mouseup',function(){isDown=false;row.classList.remove('dragging')});
+  row.addEventListener('mousemove',function(e){if(!isDown)return;e.preventDefault();moved=true;var x=e.pageX-row.offsetLeft;row.scrollLeft=scrollLeft-(x-startX)*1.5});
+  row.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(e){if(moved)e.preventDefault()})});
+})();
+</script></body>
 </html>
